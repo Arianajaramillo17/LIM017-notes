@@ -1,27 +1,105 @@
-* {   
+/** {
+    margin: 0px;
+    padding: 0px;
+    box-sizing:cover;
+
+}
+
+
+.distribution {
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    top: 36%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    border-radius: 17px;
+    width: 527px;
+    height: 61%;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    background-color: inherit;
+    box-sizing: cover;
+}
+.logo {
+    align-content: center;
+    width: 44%;
+    height: 30%;
+}
+
+/*.loginview {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    background-color: #FAF4DF;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+.logo {
+    align-content: center;
+    width: 44%;
+    height: 30%;
+}
+
+.formLogin {
+    margin-top: 11px;
+    margin-left: 30%;
+    text-align: center;
+    width: 39%;   
      margin: 0;
-    box-sizing: border-box;
 }
-.loginview {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color:  #FAF4DF;
-    background-size: 100%;
- }
- .loginview::-webkit-scrollbar{
-    -webkit-appearance: none;
+
+.emailLabel {
+    margin-left: -117%;
+    font-size: 23px;
 }
- .logo{
-    width: 290px;
-    height: 290px;
- }
- .email {
-    font-family: Comfortaa-Regular-fond, sans-serif;
-    font-size: 15px;
-    width: 290px;
-    height: 40px;
-    border-color: black;
+.passwordLabel{
+    margin-left: -117%;
+    font-size: 23px;
+}
+
+.emailLogin {
+    margin: 0;
+    height: 41px;
+    width: 270px;
+    font-size: 18px;
+    margin-top: -9px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 100);
+    border-radius: 9px;
+    box-shadow: 6px;
+    border-color: #080000c5;
+    box-shadow: #b317173b;
+    background-color: rgba(255, 255, 255, 100);
+}
+
+.passwordLogin {
+    margin: 0px;
+    height: 41px;
+    width: 270px;
+    font-size: 18px;
+    margin-top: -9px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 100);
+    border-collapse: collapse;
     border-radius: 10px;
-    padding: 10px;
+    box-shadow: 6px;
+    border-color: #080000c5;
 }
+
+.eye2 {
+    position: absolute;
+    top: 0%;
+    right: 21%;
+    transform: translateY(10%);
+}
+*/

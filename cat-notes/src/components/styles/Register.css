@@ -1,0 +1,34 @@
+.registerview{
+    margin: 0px;
+   padding: 0px;
+   display: block;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   background-size: cover;
+   height: 100vh;
+   background-color: #FAF4DF;
+}
+.distribution-register{
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 611px;
+    min-width: 320px;
+    height: 806px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    background-color: inherit;
+    top: 21%;
+    left: 5%;
+}
+.logo-register{
+    width: 10px;
+}
+.title{
+    font-size: 10px;
+}

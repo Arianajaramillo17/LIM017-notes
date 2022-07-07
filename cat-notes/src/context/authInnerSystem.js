@@ -12,7 +12,7 @@ import {
     updateProfile,
     GoogleAuthProvider,
     signInWithPopup
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+} from 'firebase/auth';
 import { auth } from "../firebase";
 //import { setUser } from "firebase/analytics";
 export const authContext = createContext();

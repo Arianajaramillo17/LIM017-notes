@@ -17,7 +17,7 @@ function App() {
       }
       />
       <Route path="/Login" element={<Login/>}/>
-      <Route path="/Register" element={<Register/>}/>
+      <Route path="/Register" element={<Register/>} component={Register} />
     </Routes>
     </AuthProvider>
     </div>

@@ -1,13 +1,32 @@
 import { useState } from "react";
 import { useAuth } from "../context/authInnerSystem";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { Icon } from 'react-icons-kit';
+import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+import { eye } from 'react-icons-kit/feather/eye';
+import '../components/styles/Login.css'
 export function Login() {
+
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(eye);
+            setType('text');
+        } else {
+            setIcon(eyeOff);
+            setType('password')
+        }
+    };
+
     const [user, setUser] = useState({
         email: '',
         password: '',
     });
     const { login, loginWithGoogle } = useAuth();
+
     const navigate = useNavigate();
+
     const [error, setError] = useState();
 
     const handleChange = ({ target: { name, value } }) =>
@@ -30,38 +49,54 @@ export function Login() {
         } catch (error) {
             setError(error.message);
         };
-
-
     }
     return (
-        <section className="loginview">
-            <div>
+
+        <div className="loginview" id="loginview">
+            <div className="distribution-login">
                 {<img className='logo'
                     src={require('../components/img/catlogo.png')}
                     alt='cat-logo' />}
 
                 {error && <p>{error}</p>}
-                <form onSubmit={handleSubmit}>
-                    <div ></div>
-                    <label htmlFor="email">Email</label>
+                <form className="formLogin" onSubmit={handleSubmit}>
+                    <p className="emailLabel"> Correo</p>
+                    <label htmlFor="email"></label>
+                    <br></br>
+
                     <input
                         type="email"
                         name="email"
                         placeholder="youremail@example.com"
                         id="inline-full-name"
+                        className="emailLogin"
                         onChange={handleChange} />
 
-                    <label htmlFor="password"> Password</label>
-                    <input type="password"
+                    <br></br>
+                    <p className="passwordLabel"> Contraseña</p>
+                    <br></br>
+                    <label htmlFor="password"> </label>
+                    <span className="eye" onClick={handleToggle} style={{ color: 'gray' }}><Icon icon={icon} size={35} /></span>
+                    <input type={type}
                         name="password"
                         id="password"
+                        className="passwordLogin"
                         placeholder='******'
                         onChange={handleChange} />
-                    <button>Login</button>
+
+                    <button className="buttonLogin">Iniciar sesión</button>
+
+                    <p className="loginSeparation">----------------o----------------</p>
+                    {<img className='gmailLogo' onClick={handleGoogleSignin}
+                        src={require('../components/img/gmail-button.png')}
+                        alt='gmail-logo' />}
+
+                    <div className='bottom'><p className="questionLogin">¿No tienes cuenta?</p>
+                        <Link className="register" to={'/Register'} >Registrarse</Link></div>
                 </form>
-                <button onClick={handleGoogleSignin}>login with google</button>
-                <button>Registrarme </button>
+
             </div>
-        </section>
+        </div>
+
     )
 };

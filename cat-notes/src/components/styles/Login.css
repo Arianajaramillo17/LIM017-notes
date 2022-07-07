@@ -1,0 +1,137 @@
+* {
+   margin: 0px;
+   padding: 0px;
+   box-sizing: cover;
+
+}
+
+
+.distribution-login {
+   padding: 0px;
+   margin: 0px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 611px;
+   min-width: 320px;
+   height: 806px;
+   text-align: center;
+   font-size: 18px;
+   font-family: 'Inter', sans-serif;
+   background-color: inherit;
+   top: 21%;
+   left: 5%;
+}
+
+.loginview {
+   margin: 0px;
+   padding: 0px;
+   display: block;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   background-size: cover;
+   height: 100vh;
+   background-color: #FAF4DF;
+}
+
+.logo {
+   margin-left: 86px;
+   width: 396px;
+   height: 347px;
+   align-self: center;
+   margin-top: -42%;
+}
+
+.emailLogin {
+      margin: 0;
+      height: 56px;
+      width: 463px;
+      font-size: 29px;
+      margin-top: -10%;
+      margin-left: -30%;
+      text-align: center;
+      border-radius: 9px;
+      border-color: #080000c5;
+      background-color: rgba(255, 255, 255, 100);
+}
+
+.passwordLogin {
+   height: 56px;
+   width: 463px;
+   margin-top: -16px;
+   font-size: 29px;
+   margin-left: -29%;
+   text-align: center;
+   border-radius: 9px;
+   border-color: #080000c5;
+   background-color: rgba(255, 255, 255, 100);
+}
+
+.formLogin {
+   text-align: justify;
+   width: 36%;
+   margin-left: 29%;
+   margin-top: 9%;
+   font-size: 29px;
+}
+
+.emailLabel {
+   margin-left: -30%;
+   font-size: 29px;
+}
+
+.passwordLabel{
+   margin-left: -29%;
+   font-size: 28px;
+   margin-top: 6%;
+}
+.eye{
+   position: absolute;
+   top: 399px;
+   right: 51px;
+
+}
+.buttonLogin{
+   color: #FAF4DF;
+   height: 56px;
+   width: 361px;
+   font-size: 29px;
+   margin-top: 23%;
+   margin-left: -7%;
+   text-align: center;
+   border-radius: 9px;
+   background-color: #7F3831;
+}
+.gmailLogo{
+   margin-left: 132px;
+   margin-top: 14px;
+   width: 53px;
+   height: 54px;
+   align-self: center;
+}
+.loginSeparation{
+   color: #7F3831;
+   width: 393px;
+   margin-left: -30px;
+   margin-top: 17px;
+   font-size: 34px;
+}
+.questionLogin{
+   font-size: 28px;
+   width: 269px;
+   margin-left: -41px;
+   margin-top: 4px;
+}
+.register{
+   color: #1E82DD;
+   font-size: 28px;
+   margin-left: 26px;
+}
+.bottom{
+   display: flex;
+   width: 260%;
+   margin-top: 34px;
+   margin-left: -17px;
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/authInnerSystem";
 import { useNavigate } from "react-router-dom";
-
+import '../components/styles/Register.css'
 
 export function Register() {
     const [user, setUser] = useState({
@@ -29,8 +29,16 @@ export function Register() {
     }
     return (
         <body >
-        <div>
+        <div className="registerview">
+            
+                <header>
+            {<img className='logo-register'
+                    src={require('../components/img/catlogo.png')}
+                    alt='cat-logo' />}
             {error && <p>{error}</p>}
+            <p className="title"> Registrate</p>
+            </header>
+            <div className="distribution-register">
             <form onSubmit={handleSubmit}>
             <label htmlFor="">Nombre</label>
                 <input type="" name="displayName" placeholder="Nombre de usuario" onChange={handleChange} />
@@ -42,6 +50,7 @@ export function Register() {
                 <input type="password" name="password" id="password" placeholder="******" onChange={handleChange} />
                 <button>Register</button>
             </form>
+            </div>
         </div>
         </body>
     )
