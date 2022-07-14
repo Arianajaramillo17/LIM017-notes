@@ -1,0 +1,37 @@
+.Container-Header{
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 14vh;
+    background-color: #FAF4DF;
+}
+.logo-home{
+    width: 58%;
+    margin-left: 1%;
+}
+.log-out-button{
+    width: 44%;
+    margin-top: 7%;
+    margin-left: 55%;
+}
+.Content-HeaderInfo{
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    grid-auto-flow: column;
+    display: grid;
+    justify-content: center;
+    width: 712px;
+    min-width: 320px;
+    height: 136px;
+    text-align: center;
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: inherit;
+    top: 1%;
+    left: 5%;
+}

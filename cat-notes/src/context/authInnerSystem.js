@@ -23,21 +23,17 @@ export const useAuth = () => {
     return context
 };
 
-export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    const signup = async (email, password, displayName) =>
+export const signup = async (email, password, displayName) =>
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 updateProfile(user, { displayName });
             });
+export const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-    const login = (email, password) =>
-        signInWithEmailAndPassword(auth, email, password);
-
-
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     const logout = () => signOut(auth);
 
     const loginWithGoogle = () => {
@@ -52,7 +48,8 @@ export function AuthProvider({ children }) {
         });
     }, []);
     return (
-        <authContext.Provider value={{ signup, login, user, logout, loading, loginWithGoogle }} >
+        <authContext.Provider value={{ user, logout, loading, loginWithGoogle }} >
             {children}</authContext.Provider>
     );
 };
+export default AuthProvider;

@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { useAuth } from "../context/authInnerSystem";
+import { login, useAuth } from "../context/authInnerSystem";
 import { useNavigate, Link } from "react-router-dom";
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import '../components/styles/Login.css'
+
 export function Login() {
 
     const [type, setType] = useState('password');
     const [icon, setIcon] = useState(eyeOff);
+
     const handleToggle = () => {
         if (type === 'password') {
             setIcon(eye);
@@ -23,7 +25,7 @@ export function Login() {
         email: '',
         password: '',
     });
-    const { login, loginWithGoogle } = useAuth();
+    const { loginWithGoogle } = useAuth();
 
     const navigate = useNavigate();
 
@@ -43,13 +45,16 @@ export function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError("");
         try {
-            await login(user.email, user.password);
-            navigate("/");
+            const homeUser = await login(user.email, user.password);
+            localStorage.setItem('email', homeUser.user.email);
+            navigate('/');
         } catch (error) {
             setError(error.message);
-        };
-    }
+        }
+    };
+
     return (
 
         <div className="loginview" id="loginview">
@@ -91,7 +96,8 @@ export function Login() {
                         src={require('../components/img/gmail-button.png')}
                         alt='gmail-logo' />}
 
-                    <div className='bottom'><p className="questionLogin">¿No tienes cuenta?</p>
+                    <div className='bottom'>
+                        <p className="questionLogin">¿No tienes cuenta?</p>
                         <Link className="register" to={'/Register'} >Registrarse</Link></div>
                 </form>
 
@@ -100,3 +106,4 @@ export function Login() {
 
     )
 };
+export default Login;

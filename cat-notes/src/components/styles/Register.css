@@ -1,34 +1,123 @@
-.registerview{
+.registerview {
     margin: 0px;
-   padding: 0px;
-   display: block;
-   background-repeat: no-repeat;
-   background-position: center;
-   background-attachment: fixed;
-   background-size: cover;
-   height: 100vh;
-   background-color: #FAF4DF;
+    padding: 0px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    background-color: #FAF4DF;
 }
-.distribution-register{
+
+.distribution-register {
     padding: 0px;
     margin: 0px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    grid-auto-flow: row;
+    display: grid;
     justify-content: center;
-    width: 611px;
+    width: 522px;
     min-width: 320px;
-    height: 806px;
+    height: 540px;
     text-align: center;
     font-size: 18px;
-    font-family: 'Inter', sans-serif;
-    background-color: inherit;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color:inherit;
     top: 21%;
-    left: 5%;
+    left: 17%;
 }
-.logo-register{
-    width: 10px;
+.distribution-register {
+    place-content:center;
 }
-.title{
-    font-size: 10px;
+
+.header-register {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 29px;
+
+}
+
+.logo-register {
+    margin-top: 27px;
+    width: 164px;
+    margin-left: 56px;
+}
+
+.title {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 88px;
+    margin-top: 51px;
+}
+.mane-register-label{
+    font-size: 36px;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.user-name-register{
+   
+    height: 56px;
+    width: 463px;
+    margin-top: -16px;
+    font-size: 29px;
+    text-align: center;
+    border-radius: 9px;
+    border-color: #080000c5;
+    background-color: rgba(255, 255, 255, 100);
+}
+
+.email-register-label{
+    font-size: 36px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+.user-email-register{
+    height: 56px;
+    width: 463px;
+    margin-top: -16px;
+    font-size: 29px;
+    text-align: center;
+    border-radius: 9px;
+    border-color: #080000c5;
+    background-color: rgba(255, 255, 255, 100);
+}
+.password-register-label{
+    font-size: 36px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+.user-password-register{
+    height: 56px;
+    width: 463px;
+    margin-top: -16px;
+    font-size: 29px;
+    text-align: center;
+    border-radius: 9px;
+    border-color: #080000c5;
+    background-color: rgba(255, 255, 255, 100);
+}
+.botton-register{
+    color: #FAF4DF;
+    height: 56px;
+    width: 361px;
+    font-size: 29px;
+    margin-top: 12%;
+    margin-left: 0%;
+    text-align: center;
+    border-radius: 9px;
+    background-color: #7F3831;
+}
+.password-register-label{
+margin-left: -61%;
+}
+.mane-register-label{
+    margin-left:  -74%;
+}
+.email-register-label{
+    margin-left: -74%;
+}
+.cute-paw{
+    width: 260px;
+    margin-top: -56%;
+    margin-left: 38%;
 }

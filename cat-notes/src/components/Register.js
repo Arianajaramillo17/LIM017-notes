@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../context/authInnerSystem";
+import { signup} from "../context/authInnerSystem";
 import { useNavigate } from "react-router-dom";
 import '../components/styles/Register.css'
 
@@ -7,9 +7,9 @@ export function Register() {
     const [user, setUser] = useState({
         email: '',
         password: '',
-        displayName:'',
+        displayName: '',
     });
-    const { signup } = useAuth();
+    //const { signup } = useAuth();
 
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export function Register() {
 
     const handleChange = ({ target: { name, value } }) =>
         setUser({ ...user, [name]: value });
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -29,29 +29,37 @@ export function Register() {
     }
     return (
         <body >
-        <div className="registerview">
-            
-                <header>
-            {<img className='logo-register'
-                    src={require('../components/img/catlogo.png')}
-                    alt='cat-logo' />}
-            {error && <p>{error}</p>}
-            <p className="title"> Registrate</p>
-            </header>
-            <div className="distribution-register">
-            <form onSubmit={handleSubmit}>
-            <label htmlFor="">Nombre</label>
-                <input type="" name="displayName" placeholder="Nombre de usuario" onChange={handleChange} />
+            <div className="registerview">
 
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" placeholder="youremail@example.com" onChange={handleChange} />
-
-                <label htmlFor="password"> Password</label>
-                <input type="password" name="password" id="password" placeholder="******" onChange={handleChange} />
-                <button>Register</button>
-            </form>
+                <header className="header-register">
+                    {<img className='logo-register'
+                        src={require('../components/img/catlogo.png')}
+                        alt='cat-logo' />}
+                    {error && <p>{error}</p>}
+                    <p className="title"> Regístrate</p>
+                </header>
+                <div className="distribution-register">
+                    <form className="distribution-forms"  onSubmit={handleSubmit}>
+                        <p className="mane-register-label">Nombre</p>
+                        <br></br>
+                        <input  className="inputregis user-name-register" type="" name="displayName" placeholder="Nombre de usuario" onChange={handleChange} />
+                        <br></br>
+                        <p htmlFor="email" className="email-register-label">Correo</p>
+                        <br></br>
+                        <input className=" inputregis user-email-register" type="email" name="email" placeholder="youremail@example.com" onChange={handleChange} />
+                        <br></br>
+                        <p htmlFor="password" className="   password-register-label"> Contraseña</p>
+                        <br></br>
+                        <input type="password" className="inputregis user-password-register" name="password" id="password" placeholder="******" onChange={handleChange} />
+                        <br></br>
+                        <button className="botton-register">Crear cuenta</button>
+                    </form>
+                </div>
+               
             </div>
-        </div>
+            {<img className='cute-paw'  src={require('../components/img/cutepaw.png')}
+                        alt='ca-paw' />}
         </body>
     )
 };
+export default Register;

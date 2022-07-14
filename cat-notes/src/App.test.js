@@ -1,26 +1,19 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
-import {createMemoryHistory} from 'history'
-import Login from '../src/components/Login'
+/* eslint-disable no-unused-vars */
+import { render, screen } from "@testing-library/react";
+import { createMemoryHistory } from "history";
+import React from "react";
+import { Router } from "react-router-dom";
+import Login from "../src/components/Login";
+import '@testing-library/jest-dom'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
-test('render login', () => {
-  const login = createMemoryHistory();
-  const route = "/Login"
-  login.push(route);
-  render(
-    <div>
-      <AuthProvider>
-        <Routes>
-          <Route path="/Login" element={<Login />} />
-        </Routes>
-      </AuthProvider>
-    </div>
-  )
-  expect(screen.getByTestId('root')).toHaveTextContent(route)
-})
+test('Login rendering', async () => {
+    const history = createMemoryHistory();
+    render(
+      <Router location={history.location} navigator={history}>
+        <Login/>
+      </Router>
+    );
+    //const user = userEvent.setup()
+    // verify page content for expected route
+    // often you'd use a data-testid or role query, but this is also possible
+    expect(screen.getByText(/¿No tienes cuenta?/i)).toBeInTheDocument()});
