@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { login, useAuth } from "../context/authInnerSystem";
+import { login,loginWithGoogle } from "../context/authInnerSystem";
 import { useNavigate, Link } from "react-router-dom";
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
@@ -25,8 +25,7 @@ export function Login() {
         email: '',
         password: '',
     });
-    const { loginWithGoogle } = useAuth();
-
+  
     const navigate = useNavigate();
 
     const [error, setError] = useState();
@@ -65,10 +64,10 @@ export function Login() {
 
                 {error && <p>{error}</p>}
                 <form className="formLogin" onSubmit={handleSubmit}>
-                    <p className="emailLabel"> Correo</p>
-                    <label htmlFor="email"></label>
+                  
+                    
+                    <label htmlFor="inline-full-name" className="emailLabel" >Correo</label>
                     <br></br>
-
                     <input
                         type="email"
                         name="email"
@@ -76,11 +75,8 @@ export function Login() {
                         id="inline-full-name"
                         className="emailLogin"
                         onChange={handleChange} />
-
                     <br></br>
-                    <p className="passwordLabel"> Contraseña</p>
-                    <br></br>
-                    <label htmlFor="password"> </label>
+                    <label htmlFor="password"> Contraseña</label>
                     <span className="eye" onClick={handleToggle} style={{ color: 'gray' }}><Icon icon={icon} size={35} /></span>
                     <input type={type}
                         name="password"
