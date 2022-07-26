@@ -10,9 +10,9 @@ import {
   doc,
 } from 'firebase/firestore';
 import { db, updateNote } from '../firebase';
+import {Edit} from './Edit';
 
-
-export function Modal() {
+export function Modal(props) {
       const inicializeDataInputs = {
       title: "",
       post: "",
@@ -22,7 +22,7 @@ export function Modal() {
  const [dataInputs, setDataInputs] = useState(inicializeDataInputs);
  const [currentId, setCurrentId] = useState('');
  const [notes, setNotes] = useState([]);
-
+ const [showEdit, setShowModEdit] = useState(false);
  
 const handleInputChange = (e) => {
   const { name, value } = e.target;
@@ -95,49 +95,40 @@ const onDeleteNote = (id) => {
 
       return (
         <>
-        <section>
+         <section>
             <div className="notesList">
-            {notes.map((note) => (
-            <div className="notesContent" key={note.id} id={note.id}>
+            {(
+            <div className="notesContent" key={props.note.id} id={props.note.id}>
               <div className="noteCard">
                 <div className="contentBtnEdit">
+                
                   <button
-                    data-noteid={note.id}
+                    data-noteid={props.note.id}
                     className="editNote"
-                    onClick={() => setCurrentId(note.id)}
+                    onClick={() =>  { setShowModEdit(true) }}
                   >
                 editar
                   </button>
+                  {showEdit ? (<Edit/>) : null}
                 </div>
                 <div className="contentBtnClose">
                   <button
                     className="btnClose"
                     onClick={(e) => {
                       e.stopPropagation();
-                      onDeleteNote(note.id);
+                      onDeleteNote(props.note.id);
                     }}
                   >
                    borrar
                   </button>
-                </div>
-                <input
-                  //disabled={editNoteSelected !== index}
-                  className="editTitleLoad"
-                  value={note.title}
-                />
-                <textarea
-                  //disabled={editNoteSelected !== index}
-                  className="editDescriptionLoad"
-                  rows="5"
-                  value={note.post}
-                >
-                </textarea>
+                </div>            
               </div>
             </div>
-          ))}
+          )}
                 </div> 
 
             </section>
+
   </>
       )
 }

@@ -1,18 +1,18 @@
+
 import React, { useState, useEffect } from "react";
 import {
-  addDoc,
   collection,
   onSnapshot,
   where,
   query,
-  deleteDoc,
   getDoc,
   doc,
+  addDoc
 } from 'firebase/firestore';
 import { db, updateNote } from '../firebase';
-import { Modal } from './ModalActions';
 
-export function Home() {
+
+export function Edit(props) {
   const inicializeDataInputs = {
     title: "",
     post: "",
@@ -22,7 +22,8 @@ export function Home() {
   const [dataInputs, setDataInputs] = useState(inicializeDataInputs);
   const [currentId, setCurrentId] = useState('');
   const [notes, setNotes] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+ 
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +32,7 @@ export function Home() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    addnote(dataInputs);
+   addnote(dataInputs);
     setDataInputs({ ...inicializeDataInputs });
   };
   const getNoteById = async (id) => {
@@ -74,9 +75,6 @@ export function Home() {
   };
   getNotes();
 
-  const onDeleteNote = (id) => {
-    deleteDoc(doc(db, "notes", id));
-  };
 
   useEffect(() => {
     const inicializeDataInputs = {
@@ -94,39 +92,48 @@ export function Home() {
 
   return (
     <section className='containerHome'>
+      <div className='logoHome'>
+      </div>
       <form className='containerNotes' onSubmit={handleSubmit}>
         <div className='containerPost'>
+          <label className='imputLitle'>
             <input type='text' name="title" placeholder="Titulo" onChange={handleInputChange} value={dataInputs.title} />
+          </label>
+          <label className='imputPost'>
             <textarea type='text' name="post" placeholder="Escribe una nota" onChange={handleInputChange} value={dataInputs.post}>
             </textarea>
+          </label>
           <button className="btnPrimary" >guardar</button>
         </div>
       </form>
 
       <section>
-
         <div className="notesList">
-          {notes.map((note) => (
-            <div className="notesContent" key={note.id} id={note.id}>
+          {(
+            <div className="notesContent" key={props.note.id} id={props.note.id}>
               <div className="noteCard">
+                <div className="contentBtnEdit">
+                </div>
+                <div className="contentBtnClose">
 
+                </div>
                 <input
                   //disabled={editNoteSelected !== index}
                   className="editTitleLoad"
-                  value={note.title}
+                  value={props.note.title}
+                  onChange={handleInputChange}
                 />
                 <textarea
                   //disabled={editNoteSelected !== index}
                   className="editDescriptionLoad"
                   rows="5"
-                  value={note.post}
+                  value={props.note.post}
+                  onChange={handleInputChange}
                 >
                 </textarea>
-                {showModal ? (<Modal note={note}/>) : null}
-                <button onClick={() => { setShowModal(true) }}>Actions</button>
               </div>
             </div>
-          ))}
+          )}
         </div>
 
       </section>
@@ -137,4 +144,4 @@ export function Home() {
   );
 
 }
-export default Home;
+export default Edit;
